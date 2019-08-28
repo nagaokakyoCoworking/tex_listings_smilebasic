@@ -1,0 +1,107 @@
+%
+\definecolor{base}{gray}{0} %black
+\definecolor{comment}{rgb}{0.52,0.60,0.00} %green
+\definecolor{string}{rgb}{0.83,0.21,0.51} %magenta
+\definecolor{keyword1}{rgb}{0.15,0.55,0.82} %blue
+\definecolor{keyword2}{rgb}{0.80,0.29,0.09} %orange
+\definecolor{keyword3}{rgb}{0.71,0.54,0.00} %yellow
+\definecolor{keyword4}{rgb}{0.42,0.44,0.77} %violet[f:id:e8l:20151129232557p:plain][f:id:e8l:20151129232557p:plain][f:id:e8l:20151129232557p:plain]
+%
+\lstdefinelanguage{smilebasic}{
+  alsoletter = {\#\%},
+  % 命令
+  morekeywords = [1]{ 
+    % 変数と配列
+    SWAP,INC,DEC,COPY,RINGCOPY,SORT,RSORT,PUSH,POP,UNSHIFT,SHIFT,FILL,TYPEOF,ARRAY\%,ARRAY\#,ARRAY$,RESIZE,INSERT,REMOVE,INSPECT,
+    % 制御と分岐
+    GOTO,GOSUB,RETURN,ON GOTO,ON GOSUB,ON BREAK GOTO,IF THEN ELSE,CASE WHEN ENDCASE,LOOP,ENDLOOP,FOR,TO,NEXT,WHILE,WEND,
+    REPEAT UNTIL,CONTINUE,BREAK,END,STOP,DEF END,DEFARGC,DEFARG,DEFOUTC,DEFOUT,CALL,
+    % 数学
+    INT,FLOAT,FLOOR,ROUND,CEIL,ABS,SGN,MIN,MAX,RND,RNDF,RANDOMIZE,SQR,EXP,LOG,POW,RAD,DEG,SIN,COS,TAN,ASIN,ACOS,ATAN,SINH,COSH,TANH,CLASSIFY,
+    % 文字列操作
+    ASC,CHR$,VAL,STR$,HEX$,BIN$,FORMAT$,LEN,LAST,MID$,LEFT$,RIGHT$,INSTR,SUBST$,DATE$,TIME$,
+    % その他
+    CONST,ENUM,READ,RESTORE,OPTION,WAIT,VSYNC,REM,TMREAD,DTREAD,CHKLABEL,CHKCALL,CHKVAR,
+    DIALOG,RESULT,CALLIDX,CLIPBOARD,KEY,FONTINFO,FREEMEM,MILLISEC,MAINCNT,SYSPARAM,PERFBEGIN,PERFEND,METALOAD,METAEDIT,METASAVE,
+    % 各種入力
+    XCNTLSTYLE,CONTROLLER,BUTTON,BREPEAT,STICK,ACCEL,GYROV,GYROA,GYROSYNC,VIBRATE,TOUCH,MOUSE,MBUTTON,IRSTART,IRSTOP,
+    IRSTATE,IRREAD,IRSPRITE,KEYBOARD,TCPIANO,TCHOUSE,TCFISHING,TCBIKE,TCROBOT,TCVISOR,
+    % ファイル
+    FILES,LOAD,LOADG,LOADV,SAVE,SAVEG,SAVEV,PROJECT,EXEC,CHKFILE,DELETE,RENAME,
+    % スクリーン制御
+    ACLS,XSCREEN,ANIMDEF,BACKCOLOR,FADE,FADECHK,
+    % テキストスクリーン
+    CLS,COLOR,LOCATE,PRINT,TPRINT,ATTR,SCROLL,CHKCHR,INPUT,LINPUT,INKEY$,TSCREEN,TPAGE,TCOLOR,TLAYER,TPUT,TFILL,
+    THOME,TOFS,TROT,TSCALE,TSHOW,THIDE,TBLEND,TANIM,TSTOP,TSTART,TCHK,TVAR,TCOPY,TSAVE,TLOAD,TARRAY,TUPDATE,TFUNC,
+    % グラフィック描画
+    GTARGET,GCOLOR,RGB,RGBF,HSV,GCLIP,GCLS,GPSET,GPGET,GLINE,GCIRCLE,GBOX,GFILL,GPAINT,GCOPY,GSAVE,GLOAD,GTRI,GPUTCHR,GARRAY,GUPDATE,GSAMPLE,
+    % スプライト
+    SPSET,SPCLR,SPSHOW,SPHIDE,SPHOME,SPOFS,SPROT,SPSCALE,SPCOLOR,SPCHR,SPPAGE,SPLAYER,SPDEF,SPLINK,SPUNLINK,SPANIM,SPSTOP,SPSTART,SPCHK,
+    SPVAR,SPCOL,SPCOLVEC,SPHITSP,SPHITRC,SPHITINFO,SPFUNC,SPUSED,
+    % レイヤー
+    LAYER,LFILTER,LCLIP,LMATRIX,
+    % サウンド
+    BEEP,BEEPPAN,BEEPPIT,BEEPSTOP,BEEPVOL,BGMCLEAR,BGMCONT,BGMPITCH,BGMPLAY,BGMPAUSE,BGMSET,BGMSETD,BGMSTOP,BGMVAR,BGMVOL,BGMWET,
+    EFCEN,EFCSET,EFCWET,PCMCONT,PCMPOS,PCMSTOP,PCMSTREAM,PCMVOL,SNDMSBAL,SNDMVOL,SNDSTOP,TALK,TALKCHK,TALKSTOP,WAVSET,WAVSETA,BGMCHK,CHKMML,
+    % 高度な演算
+    BIQUAD,BQPARAM,FFT,IFFT,FFTWFN,ARYOP,
+    % ソースコード操作
+    PRGEDIT,PRGGET$,PRGSEEK,PRGSET,PRGINS,PRGDEL,PRGSIZE,PRGNAME$,
+    % サブプログラム
+    XSUBSCREEN,ENVSTAT,ENVLOAD,ENVSAVE,ENVINPUT$,ENVTYPE,ENVFOCUS,ENVPROJECT,PUSHKEY,HELPINFO,HELPGET
+  },
+  % 変数の宣言
+  morekeywords = [2]{ 
+    VAR,DIM
+  },
+  % 定数
+  morekeywords = [3] { 
+    \#T_DEFAULT,\#T_INT,\#T_REAL,\#T_STR, \#T_INTARRAY,\#T_REALARRAY,\#T_STRARRAY,
+    % 汎用
+    \#ON,\#OFF,\#YES,\#NO,\#TRUE,\#FALSE,\#PI,\#EXP,
+    \#C_CLEAR,\#C_AQUA,\#C_BLACK,\#C_BLUE,\#C_CYAN,\#C_FUCHSIA,\#C_GRAY,\#C_GREEN,\#C_LIME,\#C_MAGENTA,
+    \#C_MAROON,\#C_NAVY,\#C_OLIVE,\#C_PURPLE,\#C_RED,\#C_SILVER,\#C_TEAL,\#C_WHITE,\#C_YELLOW,
+    % BUTTON関数の値
+    \#B_RUP,\#B_RDOWN,\#B_RLEFT,\#B_RRIGHT,\#B_LUP,\#B_LDOWN,\#B_LLEFT,\#B_LRIGHT,\#B_L1,\#B_R1,\#B_L2,\#B_R2,
+    \#B_SL,\#B_SR,\#B_S1,\#B_S2,\#B_LSTICK,\#B_RSTICK,\#B_RANY,\#B_LANY,\#B_ANY
+  },
+  % データ
+  morekeywords = [4] { 
+    DATA
+  },
+  % データ
+  morekeywords = [5] { 
+    DATA
+  },
+  morecomment = [l]{`},
+  morecomment = [s]{/*}{*/},
+  morestring = [b]{"},
+  morestring = [b]{'},
+  alsodigit = {-},
+  sensitive = false
+}
+\lstset
+{
+    basicstyle={\ttfamily\color{base}\scriptsize},%コードの基本書式
+    keywordstyle=[1]{\color{keyword1}\textbf},%キーワード1のスタイル
+    keywordstyle=[2]{\color{keyword2}\textbf},%キーワード2のスタイル
+    keywordstyle=[3]{\color{keyword3}\textbf},%キーワード3のスタイル
+    keywordstyle=[4]{\color{keyword4}\textbf},%キーワード4のスタイル
+    commentstyle={\gtfamily\scriptsize\color{comment}},%コメントのスタイル
+    stringstyle={\gtfamily\scriptsize\color{string}},%文字列のスタイル
+    numbers=left,%行番号は左
+    stepnumber=1,%一行ずつ行番号をふる
+    numberstyle={\ttfamily\scriptsize},%行番号の書式
+    xleftmargin=0.5zw, %左余白
+    xrightmargin=0zw,%右余白
+    tabsize=4,%タブの空白数
+    frame=none,%single,%フレームの書式
+    %frameround=tttt,%角を丸めるかどうか tで丸める
+    breaklines=true,%長くなったら途中で改行
+    captionpos=b,%タイトルの位置
+    breakindent=0pt,%改行されたときの送り幅
+    numbersep=5pt, % 行番号と本文の間隔
+    columns=fullflexible,
+    showstringspaces=false,%文字列中の半角スペースを表示させない
+    lineskip=-1pt%通常の文章より行送りを狭くする
+}
